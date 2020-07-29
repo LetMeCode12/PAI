@@ -28,12 +28,10 @@ public class User {
     private UUID id;
     private String name;
     private String surName;
-    @Column(nullable = false)
-    @UniqueElements
+    @Column(nullable = false,unique = true)
     @Email
     private String email;
-    @Column(nullable = false)
-    @UniqueElements
+    @Column(nullable = false,unique = true)
     private String password;
     private String role;
 
