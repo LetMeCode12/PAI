@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(),this.userRepository))
                 .authorizeRequests()
-                .antMatchers("/login","/user/register","/parking/**","/floor/**","/place/**").permitAll().antMatchers("/user/getAll").hasRole("ADMIN")
+                .antMatchers("/login","/user/register").permitAll().antMatchers("/user/getAll","/edit/{place_ID}/noFreeConfirmed").hasRole("ADMIN")
                 .anyRequest().authenticated();
 
     }

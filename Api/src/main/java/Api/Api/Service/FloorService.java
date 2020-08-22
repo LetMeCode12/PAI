@@ -7,6 +7,8 @@ import Api.Api.Repositories.ParkingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class FloorService {
 
@@ -19,11 +21,11 @@ public class FloorService {
         this.parkingRepository = parkingRepository;
     }
 
-    public String addFloor(Floor floor, String parkingId){
+    public UUID addFloor(Floor floor, String parkingId){
 
       Parking parking = parkingRepository.findAll().parallelStream().filter(e->e.getId().toString().equals(parkingId)).findFirst().orElse(null);
       floor.setParking(parking);
       floorRepository.save(floor);
-      return "Done";
+      return floor.getId();
     }
 }

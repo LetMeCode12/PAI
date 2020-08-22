@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 public class User {
 
     @Id
+    @Type(type = "uuid-char")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
