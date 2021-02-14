@@ -12,14 +12,11 @@ import java.util.UUID;
 @Service
 public class FloorService {
 
-    private final FloorRepository floorRepository;
-    private final ParkingRepository parkingRepository;
-
     @Autowired
-    public FloorService(FloorRepository floorRepository, ParkingRepository parkingRepository) {
-        this.floorRepository = floorRepository;
-        this.parkingRepository = parkingRepository;
-    }
+    private   FloorRepository floorRepository;
+    @Autowired
+    private   ParkingRepository parkingRepository;
+
 
     public UUID addFloor(Floor floor, String parkingId){
 

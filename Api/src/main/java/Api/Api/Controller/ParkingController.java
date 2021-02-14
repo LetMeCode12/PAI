@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/parking")
@@ -24,7 +25,7 @@ public class ParkingController {
     }
 
     @PostMapping("/add")
-    public String addParking(@RequestBody Parking parking){
+    public UUID addParking(@RequestBody Parking parking){
         return parkingService.addParking(parking);
     }
 

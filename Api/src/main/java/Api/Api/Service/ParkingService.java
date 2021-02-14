@@ -11,12 +11,13 @@ import java.util.UUID;
 @Service
 public class ParkingService {
 
-    private final ParkingRepository parkingRepository;
-
     @Autowired
-    public ParkingService(ParkingRepository parkingRepository) {
-        this.parkingRepository = parkingRepository;
-    }
+    private  ParkingRepository parkingRepository;
+
+//    @Autowired
+//    public ParkingService(ParkingRepository parkingRepository) {
+//        this.parkingRepository = parkingRepository;
+//    }
 
     public List<Parking> getParkings(){
         return parkingRepository.findAll();

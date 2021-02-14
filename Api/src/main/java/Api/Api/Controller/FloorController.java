@@ -2,9 +2,10 @@ package Api.Api.Controller;
 
 import Api.Api.Dto.Floor;
 import Api.Api.Service.FloorService;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/floor")
@@ -17,7 +18,7 @@ public class FloorController {
     }
 
     @PostMapping("/add/{Parking_ID}")
-    private String addFloor(@RequestBody Floor floor, @PathVariable("Parking_ID") String parkingID){
+    private UUID addFloor(@RequestBody Floor floor, @PathVariable("Parking_ID") String parkingID){
         return floorService.addFloor(floor,parkingID);
     }
 }
